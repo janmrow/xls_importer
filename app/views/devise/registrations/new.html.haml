@@ -6,6 +6,22 @@
     %br/
     = f.email_field :email, autofocus: true
   .field
+    = f.label :username
+    %br/
+    = f.text_field :username
+  .filed
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .filed
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+  .field
+    = f.label :expiration_date, "Expiration date: (format: yyyy-mm-dd)"
+    %br/
+    = f.text_field :expiration_date
+  .field
     = f.label :password
     - if @minimum_password_length
       %em
