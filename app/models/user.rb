@@ -11,9 +11,10 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :expiration_date, presence: true
+  validates_date :expiration_date, :after => :today
 
   private
-  
+
 	  def capitalize_names
 	    self.first_name = first_name.camelcase
 	    self.last_name = last_name.camelcase
