@@ -24,10 +24,10 @@ ValidatesTimeliness.setup do |config|
   # )
   #
   # Use the plugin date/time parser which is stricter and extendable
-  # config.use_plugin_parser = false
+  config.use_plugin_parser = true
   #
   # Add one or more formats making them valid. e.g. add_formats(:date, 'd(st|rd|th) of mmm, yyyy')
-  # config.parser.add_formats()
+  config.parser.add_formats(:date, 'mm/dd/yyyy"')
   #
   # Remove one or more formats making them invalid. e.g. remove_formats(:date, 'dd/mm/yyy')
   # config.parser.remove_formats()
@@ -37,4 +37,5 @@ ValidatesTimeliness.setup do |config|
   #
   # Treat ambiguous dates, such as 01/02/1950, as a Non-US date.
   # config.parser.remove_us_formats
+  # config.parser.use_euro_formats
 end
