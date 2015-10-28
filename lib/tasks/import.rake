@@ -8,7 +8,9 @@ namespace :import do
 		data = Roo::Spreadsheet.open("lib/tasks/users.xls", extension: :xlsx) 
 		p data.inspect
 
-    i = 0
+    s = 0 # success
+    f = 0 # fails
+    i = 0 # counter
     data.each do |row|
     	begin
     		next if row[0] == 'Imię'
@@ -33,14 +35,17 @@ namespace :import do
 	    		password: password,
 	    		password_confirmation: password)
 
-	    	i = i + 1
+	    	s = s + 1
 	    	p i.to_s + ' record added'
 	    rescue => e
-	    	p e.message
+	    	f = f + 1
+	    	p f.to_s + ' recoerd was not added! ' + e.message
 	    end
+	    i = i + 1
     end
 
-    p 'Records added: ' + i.to_s
+    p 'Records added: ' + s.to_s
+    p 'Fails: ' + f.to_s
 	end
 end
 
