@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ }
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :expiration_date, presence: true
+  # validates :expiration_date, presence: true
   validates_date :expiration_date, :after => :today
 
 
@@ -28,9 +28,20 @@ class User < ActiveRecord::Base
   private
 
 	def capitalize_names
-	  self.first_name = first_name.camelcase
-	  self.last_name = last_name.camelcase
+	  self.first_name = first_name.titleize
+	  self.last_name = modify_last_name(last_name)
 	end
+
+  def modify_last_name(name)
+    name = name.downcase
+    if name.include? "-"
+      name.gsub!(/-/, ' ')
+      name = name.titleize
+      name.gsub!(/ /, '-')
+    else
+      name.titleize
+    end
+  end
   
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
