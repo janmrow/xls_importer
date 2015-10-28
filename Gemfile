@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "haml-rails", "~> 0.9"
 gem 'jc-validates_timeliness'
+gem 'roo', '~> 2.1.0'
+gem 'roo-xls'
 
 group :development, :test do
   gem 'byebug'
