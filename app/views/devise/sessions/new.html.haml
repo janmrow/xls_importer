@@ -1,5 +1,11 @@
 %h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  - if flash.any?
+    %h3 Errors:
+  - flash.each do |name, msg|
+    %ul
+      %li= msg
+    %br/
   .field
     = f.label "Username or email"
     %br/
