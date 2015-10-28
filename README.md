@@ -1,32 +1,21 @@
-== README
+# How to import users form the *.xls file to database?
+It's simple.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 1. First of all: prepare users.xls file
 
-Things you may want to cover:
+How you can do this?
 
-* First of all: prepare users.xls file
+    1. One user for one row (it's very important!)
+    2. First column shoud be a first name
+    3. Second column should be a last name
+    4. Third column should be an email
+    5. Fourth column should be an expiration date
 
-* Put users.xls file to the lib/tasks folder.
+OK. Now you have got a valid .xls file. Name it users.xml
 
-* Type in console: rake import:xls
+### 2. Put users.xls file to the lib/tasks folder.
 
-* System dependencies
+### 3. Type in console: rake import:xls
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+That's all.
+You can see in the console how much rows (users) were added and you cas see also all of the errors.
